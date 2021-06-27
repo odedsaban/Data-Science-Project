@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Data Since project</title>
+  </head>
+  <body>    
+    <section class="banner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 order-1 order-md-0">
+            <div class="content-box">
+              <span class="tagline">Chen Yanko & Oded Saban</span>
+              <h2>Rising apartment prices in Gush Dan</h2>
+              <p>data mining and machine learning final project
+              </p>
+              <a href="https://github.com/odedsaban/Data-Science-Project" class="btn btn-default">View project</a>
+              <a href="#main" class="btn btn-default">Predict prices</a>
+            </div>
+          </div>
+          <div class="col-md-6 order-0 order-md-1">
+            <figure class="ban-img">
+              <img src="images/top.png" alt="">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Contact section start -->
+    <section class="contact calculator" id="main">
+      <div class="container">
+        <h1>Price Prediction</h1>
+        <p>
+            With our calculator you can predict approximated price of apartment in one of the cities included in Gush Dan
+        </p>
+        <div class="row">
+
+          <div class="col-md-8">
+            <form id="calculator">
+              <div class="row">
+                <div class="col-sm-6">
+                    <label>In which city you want to know the price?</label>
+                  <select class="selectpicker apartmentCity form-control custom-select" id="apartmentCity" data-live-search="true">
+                    <option>Bat Yam</option>  
+                    <option>Beer Yakov</option>  
+                    <option>Bnei Brak</option>  
+                    <option>Tel Aviv</option>  
+                    <option>Ramat Gan</option>  
+                    <option>Rehovot</option>  
+                    <option>Rishon Lezion</option>  
+                    <option>Holon</option>  
+                    <option>Givatayim</option>  
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                    <label>How many rooms?</label>
+
+                    <select class="selectpicker apartmentSize form-control custom-select" id="apartmentSize" data-live-search="true">
+                        <option>3</option>  
+                        <option>4</option>  
+                        <option >5</option>  
+                        <option >6</option>  
+                      </select>
+                </div>
+                <div class="col-sm-6">
+                    <input id="year" value="" class="form-control" placeholder="Enter year for prediction" type="number" />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-default">Predict</button>
+            </form>
+          </div>
+          <div class="col-md-4" id="results">
+            <div class="alert alert-success results" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>An approximate price for apartment with <span class="rooms">5</span> rooms in <span class="city">tel-aviv</span> on <span class="year">2021</span> is <strong class="price">55555</strong>₪</p>
+                
+                <p class="mb-0"></p>
+              </div>
+              <div class="alert alert-danger errors " role="alert">
+                <h4 class="alert-heading">Error!</h4>
+                <p>Please select a year after the <strong>2000th</strong> year</p>
+                
+                <p class="mb-0"></p>
+              </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </section>
+
+    <script>
+
+      
+    </script>
+    <!-- JS -->
+        <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script  src="js/jquery-3.3.1.min.js"  ></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+
+    <script>
+        var aprartmentsSize = {}
+        aprartmentsSize[6] = 130;
+        aprartmentsSize[5] = 110;
+        aprartmentsSize[4] = 90;
+        aprartmentsSize[3] = 70;
+        var values = [];
+        values['Bat Yam']= {a: 702.93283011,b:-1398636.5084515775};
+        values['Bnei Brak']= {a: 626.79919866,b:-1243866.0197219972};
+        values['Beer Yakov']= {a: 504.38978281,b:-1001470.3203076059};
+        values['Ramat Gan']= {a: 868.61342275,b:-1727643.4168720706};
+        values['Tel Aviv']= {a: 1276.09705429,b:-2540581.6135754306};
+        values['Rishon Lezion']= {a: 596.41115313,b:-1184441.0606584162};
+        values['Givatayim']= {a: 810.4976119,b:-1608370.2181404324};
+        values['Rehovot']= {a: 726.03283843,b:-1447973.4780000602};
+        values['Holon']= {a: 743.77151671,b:-1480438.7124471795};
+        function commaSeparateNumber(val){
+            while (/(\d+)(\d{3})/.test(val.toString())){
+              val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
+            }
+            return val;
+        }
+        function predictPrice(city,rooms,year){
+            price = (values[city].a * year + (values[city].b)) * aprartmentsSize[rooms];
+            $('.results').find('.price').html(commaSeparateNumber(Math.ceil(price)));
+            $('.results').find('.rooms').html(rooms);
+            $('.results').find('.city').html(city);
+            $('.results').find('.year').html(year);
+            return true;
+        }
+
+        $(document).ready(function(){
+            $('.selectpicker').selectpicker(); 
+
+            
+            $( "#calculator" ).submit(function( event ) {
+                event.preventDefault();
+                city = $('select#apartmentCity').val();
+                year = $('#year').val();
+                rooms = $('select#apartmentSize').val();
+                if(!year || !$.isNumeric(year) || year < 2000)
+                {
+                    $('#year').addClass('is-invalid').focus();
+                    $('.results').fadeOut().promise().done(function(){
+                      $('.errors').fadeIn();
+                    });
+                } 
+                else{
+                    $('html, body').animate({
+                        scrollTop: $("#results").offset().top
+                    }, 100);
+                    $('#year').removeClass('is-invalid').focus();
+                    $(".results").focus();
+                    if(predictPrice(city,rooms,year))
+                    {
+                      $('.errors').fadeOut().promise().done(function(){
+                        $('.results').fadeIn();
+                      });
+                    }
+                        
+                }
+            });
+        });
+      </script>
+  </body>
+</html>
